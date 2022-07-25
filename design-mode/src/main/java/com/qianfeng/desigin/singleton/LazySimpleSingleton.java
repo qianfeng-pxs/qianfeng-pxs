@@ -66,6 +66,30 @@ class LazySynchronizedSingleton {
 }
 
 
+/**
+ * 登记式/静态内部类这种方式能达到双检锁方式一样的功效，但实现更简单。对静态域使用延迟初始化，应使用这种方式而不是双检锁方式。
+ * 这种方式只适用于静态域的情况，双检锁方式可在实例域需要延迟初始化时使用。
+ *
+ *
+ */
+class LazyStaticInnerClassSingleton {
+
+    private LazyStaticInnerClassSingleton() {
+        // 优化创建过程，防止使用反射来调用其构造方法，再调用getInstance()方法，创建两个不同的实例
+        if(LazyHolder.INSTANCE != null){
+            throw new RuntimeException("不允许非法访问");
+        }
+    }
+    // 只有通过显式调用 getInstance 方法时，才会显式装载 LazyStaticInnerClassSingleton 类
+    private static final LazyStaticInnerClassSingleton getInstance() {
+        return LazyHolder.INSTANCE;
+    }
+    private static class LazyHolder {
+        private static final LazyStaticInnerClassSingleton INSTANCE = new LazyStaticInnerClassSingleton();
+    }
+}
+
+
 
 
 
