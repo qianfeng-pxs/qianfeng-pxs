@@ -2,9 +2,8 @@ package com.qianfeng.desigin.singleton;
 
 import java.lang.reflect.Constructor;
 
-// 单例模式的构造方法除了加上private关键字，没有做任何处理。如果我们使用反射来调用其构造方法，再调用getInstance()方法，应该有两个不同的实例
 /**
- *
+ * 单例模式的构造方法除了加上private关键字，没有做任何处理。如果我们使用反射来调用其构造方法，再调用getInstance()方法，应该有两个不同的实例
  */
 public class ReflectTest {
 
@@ -27,7 +26,7 @@ public class ReflectTest {
 
             System.out.println(instance1 == instance2);
 
-        }catch (Exception e){
+        } catch (Exception e) {
             e.printStackTrace();
         }
     }
