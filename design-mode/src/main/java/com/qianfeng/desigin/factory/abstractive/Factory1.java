@@ -3,12 +3,12 @@ package com.qianfeng.desigin.factory.abstractive;
 public class Factory1 extends IAbstractFactory {
 
     @Override
-    public IAbstractProductA makeProductA() {
+    public ProductA makeProductA() {
         return new ProductA1Impl();
     }
 
     @Override
-    public IAbstractProductB makeProductB() {
+    public ProductB makeProductB() {
         return new ProductB1Impl();
     }
 }
