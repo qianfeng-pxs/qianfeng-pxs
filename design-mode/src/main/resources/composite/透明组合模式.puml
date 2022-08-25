@@ -1,0 +1,16 @@
+@startuml
+'https://plantuml.com/class-diagram
+
+abstract class Component{
++void add(Component component)
++void remove(Component component)
++void print()
+}
+class Leaf
+class Composite
+class Client
+Component <|-- Leaf
+Component <|-- Composite
+Composite o-- Component
+Component <-left- Client
+@enduml
