@@ -1,0 +1,14 @@
+@startuml
+'https://plantuml.com/class-diagram
+
+interface ISubject{
++ void doSomething
+}
+class Subject
+class Proxy
+
+ISubject <|.. Subject
+ISubject <|.. Proxy
+ISubject o-right- Proxy
+
+@enduml
